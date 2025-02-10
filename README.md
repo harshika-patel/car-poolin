@@ -1,25 +1,25 @@
 # **Project Title: Carpooling Application**
-##**Overview**
+## **Overview**
 
 The Carpooling Application is a platform designed to connect drivers offering rides with passengers seeking transportation. It aims to facilitate ride-sharing by providing a user-friendly interface for both drivers and passengers to register, post ride details, and book available seats.
 
-##**Problem Space**
+## **Problem Space**
 Urban areas often face challenges such as traffic congestion, environmental pollution, and high commuting costs. Many vehicles travel with empty seats, leading to inefficient use of resources. This application addresses these issues by promoting carpooling, thereby reducing the number of vehicles on the road, lowering emissions, and decreasing travel expenses for users.
 
-##**User Profile**
+## **User Profile**
 
-##**The application serves two primary user groups:**
-###Drivers: Individuals who have available seats in their vehicles and wish to offer rides to others.
+## **The application serves two primary user groups:**
+### Drivers: Individuals who have available seats in their vehicles and wish to offer rides to others.
 
-###Passengers: Individuals seeking transportation options that are cost-effective and environmentally friendly.
+### Passengers: Individuals seeking transportation options that are cost-effective and environmentally friendly.
 
 Both user types will have tailored registration processes to capture necessary information, ensuring safety and reliability within the platform.
 
-##**Features**
+## **Features**
 
-###**User Registration and Authentication:** Separate sign-in pages for drivers and passengers, collecting relevant details such as name, contact information, and, for drivers, additional credentials like insurance and license numbers.
+### **User Registration and Authentication:** Separate sign-in pages for drivers and passengers, collecting relevant details such as name, contact information, and, for drivers, additional credentials like insurance and license numbers.
 
-###**Ride Posting:** Drivers can post ride details, including pickup and drop-off locations, time, available seats, and price per seat.
+### **Ride Posting:** Drivers can post ride details, including pickup and drop-off locations, time, available seats, and price per seat.
 
 ###**Ride Search and Booking:** Passengers can search for rides based on their desired pickup and drop-off locations and time. Search results are displayed in a card format, showing key details. Passengers can view detailed ride information and book available seats.
 

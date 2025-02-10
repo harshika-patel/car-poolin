@@ -49,7 +49,7 @@ MySQL
 ### **Tools:**
 Postman for API testing
 
-### **APIs**
+### **APIs**:
 
 The application will utilize third-party APIs for functionalities such as geolocation and mapping to enhance user experience.
 

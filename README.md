@@ -99,8 +99,7 @@ GET /bookings
 GET /email
 
 ## **Roadmap**
-**
-Week 1-2**: Requirement gathering, planning, and designing mockups.
+**Week 1-2**: Requirement gathering, planning, and designing mockups.
 
 **Week 3-4**: Setting up the development environment and creating the database schema.
 

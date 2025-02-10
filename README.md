@@ -9,27 +9,33 @@ Urban areas often face challenges such as traffic congestion, environmental poll
 ## **User Profile**
 
 ## **The application serves two primary user groups:**
-### Drivers: Individuals who have available seats in their vehicles and wish to offer rides to others.
+### Drivers:
+Individuals who have available seats in their vehicles and wish to offer rides to others.
 
-### Passengers: Individuals seeking transportation options that are cost-effective and environmentally friendly.
+### Passengers: 
+Individuals seeking transportation options that are cost-effective and environmentally friendly.
 
 Both user types will have tailored registration processes to capture necessary information, ensuring safety and reliability within the platform.
 
 ## **Features**
 
-### **User Registration and Authentication:** Separate sign-in pages for drivers and passengers, collecting relevant details such as name, contact information, and, for drivers, additional credentials like insurance and license numbers.
+### **User Registration and Authentication:**
+Separate sign-in pages for drivers and passengers, collecting relevant details such as name, contact information, and, for drivers, additional credentials like insurance and license numbers.
 
-### **Ride Posting:** Drivers can post ride details, including pickup and drop-off locations, time, available seats, and price per seat.
+### **Ride Posting:** 
+Drivers can post ride details, including pickup and drop-off locations, time, available seats, and price per seat.
 
-###**Ride Search and Booking:** Passengers can search for rides based on their desired pickup and drop-off locations and time. Search results are displayed in a card format, showing key details. Passengers can view detailed ride information and book available seats.
+### **Ride Search and Booking:** 
+Passengers can search for rides based on their desired pickup and drop-off locations and time. Search results are displayed in a card format, showing key details. Passengers can view detailed ride information and book available seats.
 
-###**Email Notifications:** Drivers receive email when a passenger books a seat, with options to confirm or cancel the booking.
+### **Email Notifications:**
+Drivers receive email when a passenger books a seat, with options to confirm or cancel the booking.
 
 
 
-##**Implementation**
+## **Implementation**
 
-##**Tech Stack**
+## **Tech Stack**
 
 Front-End: HTML, CSS, SCSS, Bootstrap, JavaScript, React.js
 
@@ -43,7 +49,7 @@ APIs
 
 The application will utilize third-party APIs for functionalities such as geolocation and mapping to enhance user experience.
 
-##**Sitemap**
+## **Sitemap**
 
 Home Page: Introduction and overview of the application.
 
@@ -59,17 +65,17 @@ Ride Details Page: Detailed information about a selected ride, with booking opti
 
 
 
-##**Mockups**
+## **Mockups**
 
 Wireframes and mockups will be created using Figma to visualize the application's user interface and user experience design.
 
 https://www.figma.com/design/wVZmSojfuv24UWtX1spUcy/Harshika?node-id=0-1&t=DvBKsxhcWeiC8wG9-1
 
-##**Data**
+## **Data**
 
 The database will include tables for users, rides, bookings, and notifications. Relationships will be established to link drivers to their posted rides, passengers to their bookings, and notifications to relevant user actions.
 
-##**Endpoints**
+## **Endpoints**
 
 User Endpoints:
 
@@ -89,7 +95,7 @@ Notification Endpoints:
 
 GET /email
 
-##**Roadmap**
+## **Roadmap**
 
 Week 1-2: Requirement gathering, planning, and designing mockups.
 
@@ -103,7 +109,7 @@ Week 9-10: Developing booking and notification systems.
 
 Week 11-12: Testing, debugging, and preparing for deployment.
 
-##**Future Implementations**
+## **Future Implementations**
 
 Real-Time Tracking: Integrate real-time GPS tracking for rides.
 

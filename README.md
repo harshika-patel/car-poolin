@@ -81,22 +81,21 @@ The database will include tables for users, rides, bookings, and notifications. 
 
 ## **Endpoints**
 
-User Endpoints:
-
+**User Endpoints:**
 POST /register
 POST /login
 GET /profile
-Ride Endpoints:
 
+**Ride Endpoints:**
 POST /rides
 GET /rides
 GET /rides/:id
-Booking Endpoints:
 
+**Booking Endpoints:**
 POST /bookings
 GET /bookings
-Notification Endpoints:
 
+**Notification Endpoints:**
 GET /email
 
 ## **Roadmap**

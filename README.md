@@ -37,31 +37,35 @@ Drivers receive email when a passenger books a seat, with options to confirm or 
 
 ## **Tech Stack**
 
-Front-End: HTML, CSS, SCSS, Bootstrap, JavaScript, React.js
+###  **Front-End:**
+HTML, CSS, SCSS, Bootstrap, JavaScript, React.js
 
-Back-End: Node.js, Express.js
+### **Back-End: **
+Node.js, Express.js
 
-Database: MySQL
+### **Database:**
+MySQL
 
-Tools: Postman for API testing
+### **Tools:**
+Postman for API testing
 
-APIs
+### **APIs**
 
 The application will utilize third-party APIs for functionalities such as geolocation and mapping to enhance user experience.
 
 ## **Sitemap**
 
-Home Page: Introduction and overview of the application.
+**Home Page**: Introduction and overview of the application.
 
-Registration Pages: Separate pages for driver and passenger sign-ups.
+**Registration Pages**: Separate pages for driver and passenger sign-ups.
 
-Login Page: Unified login for all users.
+**Login Page**: Unified login for all users.
 
-Ride Posting Page: Form for drivers to post new rides.
+**Ride Posting Page**: Form for drivers to post new rides.
 
-Search Results Page: Displays available rides based on passenger search criteria.
+**Search Results Page**: Displays available rides based on passenger search criteria.
 
-Ride Details Page: Detailed information about a selected ride, with booking options.
+**Ride Details Page**: Detailed information about a selected ride, with booking options.
 
 
 
@@ -69,7 +73,7 @@ Ride Details Page: Detailed information about a selected ride, with booking opti
 
 Wireframes and mockups will be created using Figma to visualize the application's user interface and user experience design.
 
-https://www.figma.com/design/wVZmSojfuv24UWtX1spUcy/Harshika?node-id=0-1&t=DvBKsxhcWeiC8wG9-1
+[https://www.figma.com/design/wVZmSojfuv24UWtX1spUcy/Harshika?node-id=0-1&t=DvBKsxhcWeiC8wG9-1]
 
 ## **Data**
 
@@ -96,25 +100,25 @@ Notification Endpoints:
 GET /email
 
 ## **Roadmap**
+**
+Week 1-2**: Requirement gathering, planning, and designing mockups.
 
-Week 1-2: Requirement gathering, planning, and designing mockups.
+**Week 3-4**: Setting up the development environment and creating the database schema.
 
-Week 3-4: Setting up the development environment and creating the database schema.
+**Week 5-6**: Developing user authentication and profile management features.
 
-Week 5-6: Developing user authentication and profile management features.
+**Week 7-8**: Implementing ride posting and search functionalities.
 
-Week 7-8: Implementing ride posting and search functionalities.
+**Week 9-10**: Developing booking and notification systems.
 
-Week 9-10: Developing booking and notification systems.
-
-Week 11-12: Testing, debugging, and preparing for deployment.
+**Week 11-12**: Testing, debugging, and preparing for deployment.
 
 ## **Future Implementations**
 
-Real-Time Tracking: Integrate real-time GPS tracking for rides.
+**Real-Time Tracking**: Integrate real-time GPS tracking for rides.
 
-Payment Integration: Implement secure payment gateways for transactions.
+**Payment Integration**: Implement secure payment gateways for transactions.
 
-Rating System: Allow users to rate each other to build trust within the community.
+**Rating System**: Allow users to rate each other to build trust within the community.
 
-Advanced Matching Algorithm: Enhance ride matching based on user preferences and past behaviors.
+**Advanced Matching Algorithm**: Enhance ride matching based on user preferences and past behaviors.

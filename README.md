@@ -40,7 +40,7 @@ Drivers receive email when a passenger books a seat, with options to confirm or 
 ###  **Front-End:**
 HTML, CSS, SCSS, Bootstrap, JavaScript, React.js
 
-### **Back-End: **
+### **Back-End:**
 Node.js, Express.js
 
 ### **Database:**

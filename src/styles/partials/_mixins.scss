@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+//768px to 1279px
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+//1280px and above
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}

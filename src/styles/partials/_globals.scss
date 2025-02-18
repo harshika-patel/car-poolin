@@ -1,0 +1,23 @@
+@use '../../styles/partials/variables.scss' as *;
+body{
+    font-family: "AlumniSans", sans-serif;
+    font-size: medium;
+    font-style: normal;
+    font-weight: 300;
+    background-color: $backgroundColor;
+}
+button{
+    font-family: "AlumniSans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+h1{
+    font-family: "AlumniSans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+p{
+    font-family: "AlumniSans", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}

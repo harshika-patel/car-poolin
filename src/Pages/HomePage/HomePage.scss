@@ -1,0 +1,33 @@
+@use '../../styles/partials/globals.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+.start-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    &__img{
+        height:200px;
+        width:290px;
+        margin:1rem;
+    }
+    &__title{
+       margin:0px;
+    }
+    &__detail{
+        margin:0px;
+        margin-bottom: 8px;
+     }
+    &__btn{
+       
+        background-color: $purple;
+        color:$black;
+        border:1px solid black;
+        padding:8px;
+        border-radius: 5px;
+        margin:8px 0;
+    }
+    &__para{
+        margin:0;
+    }
+}

@@ -47,12 +47,13 @@ const PassengerRegister = () => {
   return (
     <section>
       <Header />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='passengerRegister'>
         <h2>Passenger Registration</h2>
-        <div>
-          <label>
+        <div className='passengerRegister__row'>
+          <label className='passengerRegister__label'>
             Username:
             <input
+              className='passengerRegister__input'
               type="text"
               name="username"
               value={formData.username}
@@ -61,10 +62,11 @@ const PassengerRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='passengerRegister__row'>
+          <label className='passengerRegister__label'>
             Password:
             <input
+            className='passengerRegister__input'
               type="password"
               name="password"
               value={formData.password}
@@ -73,10 +75,11 @@ const PassengerRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='passengerRegister__row'>
+          <label className='passengerRegister__label'>
             Age:
             <input
+            className='passengerRegister__input'
               type="number"
               name="age"
               value={formData.age}
@@ -85,10 +88,11 @@ const PassengerRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='passengerRegister__row'>
+          <label className='passengerRegister__label'>
             Phone Number:
             <input
+            className='passengerRegister__input'
               type="text"
               name="phone_number"
               value={formData.phone_number}
@@ -97,9 +101,9 @@ const PassengerRegister = () => {
             />
           </label>
         </div>
-        <button type="submit">Register</button> 
+        <button type="submit" className='passengerRegister__btn'> Register</button> 
       </form>
-      <Link to="/"><button type="button">Back</button></Link>
+      <Link to="/"><button type="button"className='passengerRegister__backBtn'>Back</button></Link>
     </section>
   );
 };

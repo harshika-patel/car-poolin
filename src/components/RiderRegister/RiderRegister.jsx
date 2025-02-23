@@ -68,15 +68,16 @@ const RiderRegister = () => {
   return (
     <section>
       <Header />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='riderRegister'>
         <h2>Rider Registration</h2>
 
         {errorMessage && <p className="error">{errorMessage}</p>}
 
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Username:
             <input
+            className='riderRegister__input'
               type="text"
               name="username"
               value={formData.username}
@@ -85,10 +86,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Password:
             <input
+             className='riderRegister__input'
               type="password"
               name="password"
               value={formData.password}
@@ -97,10 +99,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Age:
             <input
+             className='riderRegister__input'
               type="number"
               name="age"
               value={formData.age}
@@ -109,10 +112,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Phone Number:
             <input
+             className='riderRegister__input'
               type="text"
               name="phone_number"
               value={formData.phone_number}
@@ -121,10 +125,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Car Name:
             <input
+             className='riderRegister__input'
               type="text"
               name="car_name"
               value={formData.car_name}
@@ -133,10 +138,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Model:
             <input
+             className='riderRegister__input'
               type="text"
               name="model"
               value={formData.model}
@@ -145,10 +151,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
             Color:
             <input
+             className='riderRegister__input'
               type="text"
               name="color"
               value={formData.color}
@@ -157,10 +164,11 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <div>
-          <label>
-            License Plate Number:
+        <div className='riderRegister__row'>
+          <label className='riderRegister__label'>
+            LicensePlateNumber:
             <input
+             className='riderRegister__input'
               type="text"
               name="license_plate_number"
               value={formData.license_plate_number}
@@ -169,9 +177,9 @@ const RiderRegister = () => {
             />
           </label>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className='riderRegister__btn'>Register</button>
       </form>
-      <Link to="/"><button type="button">Back</button></Link>
+      <Link to="/"><button type="button" className='riderRegister__backBtn'>Back</button></Link>
     </section>
   );
 };

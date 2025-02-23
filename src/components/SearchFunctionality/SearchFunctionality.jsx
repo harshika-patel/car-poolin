@@ -1,11 +1,38 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import './SearchFunctionality.scss';
+import CardDetails from "../CardDetails/CardDetails";
+import axios from "axios";
+
 const LocationSearch = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [suggestionsFrom, setSuggestionsFrom] = useState([]);
   const [suggestionsTo, setSuggestionsTo] = useState([]);
   const [activeField, setActiveField] = useState("");
+  const [rides, setRides] = useState([]); 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+
+
+  useEffect(() => {
+    // Load all rides on first render
+    fetchAllRides();
+}, []);
+
+const fetchAllRides = async () => {
+    setLoading(true);
+    try {
+        const response = await axios.get("http://localhost:8080/rides");
+        setRides(response.data);
+    } catch (error) {
+        console.error("Error fetching rides:", error);
+        setError("Failed to load rides.");
+    } finally {
+        setLoading(false);
+    }
+};
+
 
   const fetchSuggestions = async (input, field) => {
     if (!input) {
@@ -51,27 +78,48 @@ const LocationSearch = () => {
       setSuggestionsTo([]); // Clear suggestions after selection
     }
   };
+  const handleSearchRides = async () => {
+    if (!from || !to) {
+      setError("Please enter both locations.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.get(`http://localhost:8080/rides/search?from=${from}&to=${to}`);
+      setRides(response.data);
+    } catch (error) {
+      console.error("Error fetching ride details:", error);
+      setError("No rides found for the selected locations.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <label className="block mb-2 text-lg">From:</label>
+    <div className="search-box">
+      <label className="search-box__label">From:</label>
       <input
+      className="search-box__input"
         type="text"
         value={from}
         onChange={(e) => {
           setFrom(e.target.value);
           fetchSuggestions(e.target.value, "from");
         }}
-        className="w-full p-2 border rounded"
+       
         placeholder="Enter starting location"
       />
 
       {suggestionsFrom.length > 0 && (
-        <ul className="border rounded mt-2 bg-white shadow-lg">
+        <ul >
           {suggestionsFrom.map((suggestion, index) => (
             <li
               key={index}
-              className="p-2 cursor-pointer hover:bg-gray-200"
+              
               onClick={() => handleSelectSuggestion(suggestion)}
             >
               {suggestion}
@@ -80,24 +128,25 @@ const LocationSearch = () => {
         </ul>
       )}
 
-      <label className="block mt-4 mb-2 text-lg">To:</label>
+      <label className="search-box__label" >To:</label>
       <input
+       className="search-box__input"
         type="text"
         value={to}
         onChange={(e) => {
           setTo(e.target.value);
           fetchSuggestions(e.target.value, "to");
         }}
-        className="w-full p-2 border rounded"
+       
         placeholder="Enter destination"
       />
 
       {suggestionsTo.length > 0 && (
-        <ul className="border rounded mt-2 bg-white shadow-lg">
+        <ul >
           {suggestionsTo.map((suggestion, index) => (
             <li
               key={index}
-              className="p-2 cursor-pointer hover:bg-gray-200"
+             
               onClick={() => handleSelectSuggestion(suggestion)}
             >
               {suggestion}
@@ -105,6 +154,9 @@ const LocationSearch = () => {
           ))}
         </ul>
       )}
+      <button type="button" className="search-box__btn"  onClick={handleSearchRides}>Search for Ride</button>
+      {/* {error && <p className="error-message">{error}</p>} */}
+      <CardDetails rides={rides} />
     </div>
   );
 };

@@ -1,0 +1,46 @@
+@use '../../styles/partials/globals.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+.passengerRegister{
+    display: flex;
+    flex-direction: column;
+    padding:12px;
+    &__row{
+      margin-bottom: 8px;
+      display:flex;
+      
+    }
+    &__label{
+        margin-right: 5px;
+       
+       
+    }
+    &__btn{
+        margin-left:0;
+        margin-top: 5px;
+        width: 80%;
+        margin-top:16px;
+        
+        padding: 6px;
+        background-color: $purple;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    &__backBtn{
+        margin-left:12px;
+        
+        width: 75%;
+        
+        margin-bottom: 1rem;
+        padding: 6px;
+        background-color: black;
+        color:white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+   
+}

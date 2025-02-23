@@ -1,0 +1,18 @@
+@use '../../styles/partials/globals.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
+
+.post-ride-button{
+   
+   
+    width: 75%;
+   margin-left:1rem;
+    margin-bottom: 1rem;
+    padding: 6px;
+    background-color: black;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}

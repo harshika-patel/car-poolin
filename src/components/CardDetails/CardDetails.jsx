@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./CardDetails.scss"; 
 
-const CardDetails = () => {
-    const [rides, setRides] = useState([]); // Initialize as an array
-
-    useEffect(() => {
-        // Fetch ride details from the backend
-        axios.get("http://localhost:8080/rides") // Update API endpoint as needed
-            .then(response => {
-                setRides(response.data); // Set the rides data
-            })
-            .catch(error => {
-                console.error("Error fetching ride details:", error);
-            });
-    }, []);
-
-    if (rides.length === 0) return <p>Loading...</p>; // Check for empty array
-
+import profile from "../../assets/image/Profile.png";
+import "./CardDetails.scss";
+import { useNavigate } from "react-router-dom";
+const CardDetails = ({ rides = [] }) => {
+    const navigate = useNavigate();
+    if (!rides || rides.length === 0) return <p>No rides available</p>;
     return (
         <div className="rides-container">
             {rides.map(ride => (
-                <div className="ride-card" key={ride.id}>
-                    {/* Header with date and time */}
+                <div className="ride-card" key={ride.id}  onClick={() => navigate(`/ride/${ride.id}`)}>
+                    {/* Header with Date and Time */}
                     <div className="ride-header">
                         <span className="ride-date">{new Date(ride.date).toLocaleDateString()}</span>
                         <span className="ride-time">{ride.time}</span>
@@ -31,12 +20,12 @@ const CardDetails = () => {
                     {/* Ride details */}
                     <div className="ride-body">
                         {/* Static Profile Image */}
-                        <img className="profile-pic" src="/static/profile.png" alt="Profile" />
-                        
-                        {/* Driver details - assuming these fields exist in your ride data */}
+                        <img className="profile-pic" src={profile} alt="Driver Profile" />
+                       
+                        {/* Driver details */}
                         <div className="ride-info">
-                            <h4>{ride.username || "Driver"}</h4>  {/* Use placeholder if username is not available */}
-                            <p>{ride.phone_number || "N/A"}</p>  {/* Use placeholder if phone number is not available */}
+                        <h4 className="ride-info__title">{ride.username}</h4> 
+                            <p>📞 {ride.phone_number}</p>
                         </div>
                     </div>
 
@@ -49,7 +38,7 @@ const CardDetails = () => {
                     {/* Seats and Price */}
                     <div className="ride-seats">
                         <p>{ride.seats} seats left</p>
-                        <p>${ride.price} per seat</p>
+                        <p>💰 ${ride.price} per seat</p>
                     </div>
                 </div>
             ))}

@@ -2,8 +2,9 @@ import './Login.scss';
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from "../Header/Header";
-
+import { useAuth } from '../../contexts/AuthContext';
 const Login = () => {
+    const { loginUser } = useAuth(); 
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -34,6 +35,7 @@ const Login = () => {
 
       if (response.ok) {
         alert('Login successful!');
+        await loginUser(formData.username, formData.password);
         navigate('/MainPage');
       } else {
         setError(data.message); // Show backend error message

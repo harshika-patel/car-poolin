@@ -1,6 +1,10 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { useAuth } from '../../contexts/AuthContext'; 
+import Header from "../Header/Header";
+import { Link } from "react-router-dom";
+import './PostRideForm.scss';
 const PostRideForm = () => {
+  const { currentUser } =  useAuth(); // Access the current user from context
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState("");
@@ -54,10 +58,27 @@ const PostRideForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const rideData = { from, to, date, time, price, seats };
-
+    
+   
+    if (!currentUser) {
+      alert("You need to be logged in to post a ride.");
+      return;
+    }
+    console.log("Current User:", currentUser);
+    const rideData = {
+      from,
+      to,
+      date,
+      time,
+      price: parseFloat(price),
+      seats: parseInt(seats, 5),
+      is_booked: false, // Default value
+      booked_seats: null, // Default value
+      driver_id: currentUser.user_id // Get the current driver's ID
+    };
+    console.log("Ride Data to be submitted:", rideData);
     try {
-      const response = await fetch("http://localhost:5000/api/rides", {
+      const response = await fetch("http://localhost:8080/rides", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(rideData),
@@ -65,8 +86,17 @@ const PostRideForm = () => {
 
       if (response.ok) {
         alert("Ride details submitted successfully!");
+        // Optionally, you can reset the form fields after successful submission
+        setFrom("");
+        setTo("");
+        setDate("");
+        setTime("");
+        setPrice("");
+        setSeats("");
       } else {
-        alert("Error submitting ride details.");
+        const errorData = await response.json();
+        console.error('Error response from server:', errorData);
+        alert("Error submitting ride details: " + errorData.message);
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -74,11 +104,12 @@ const PostRideForm = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-white shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-4">Book a Ride</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* From Location */}
-        <label className="block">From:</label>
+    <div > 
+      <Header/>
+      <h2 className="book-ride__title">Post a Ride</h2>
+      <form onSubmit={handleSubmit} className="book-ride" >
+      
+        <label className="book-ride__label">From:</label>
         <input
           type="text"
           value={from}
@@ -86,15 +117,16 @@ const PostRideForm = () => {
             setFrom(e.target.value);
             fetchSuggestions(e.target.value, "from");
           }}
-          className="w-full p-2 border rounded"
+          className="book-ride__input"
           placeholder="Enter starting location"
+          required
         />
         {suggestionsFrom.length > 0 && (
-          <ul className="border rounded mt-2 bg-white shadow-lg">
+          <ul >
             {suggestionsFrom.map((suggestion, index) => (
               <li
                 key={index}
-                className="p-2 cursor-pointer hover:bg-gray-200"
+               
                 onClick={() => handleSelectSuggestion(suggestion, "from")}
               >
                 {suggestion}
@@ -104,7 +136,7 @@ const PostRideForm = () => {
         )}
 
         {/* To Location */}
-        <label className="block">To:</label>
+        <label className="book-ride__label">To:</label>
         <input
           type="text"
           value={to}
@@ -112,15 +144,16 @@ const PostRideForm = () => {
             setTo(e.target.value);
             fetchSuggestions(e.target.value, "to");
           }}
-          className="w-full p-2 border rounded"
+           className="book-ride__input"
           placeholder="Enter destination"
+          required
         />
         {suggestionsTo.length > 0 && (
-          <ul className="border rounded mt-2 bg-white shadow-lg">
+          <ul>
             {suggestionsTo.map((suggestion, index) => (
               <li
                 key={index}
-                className="p-2 cursor-pointer hover:bg-gray-200"
+                
                 onClick={() => handleSelectSuggestion(suggestion, "to")}
               >
                 {suggestion}
@@ -130,26 +163,27 @@ const PostRideForm = () => {
         )}
 
         {/* Date Picker */}
-        <label className="block">Date:</label>
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="w-full p-2 border rounded" />
+        <label className="book-ride__label">Date:</label>
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)}  required  className="book-ride__input" />
 
         {/* Time Picker */}
-        <label className="block">Time:</label>
-        <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="w-full p-2 border rounded" />
+        <label className="book-ride__label">Time:</label>
+        <input type="time" value={time} onChange={(e) => setTime(e.target.value)}  required  className="book-ride__input" />
 
         {/* Price */}
-        <label className="block">Price ($):</label>
-        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full p-2 border rounded" />
+        <label className="book-ride__label">Price ($):</label>
+        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}  required  className="book-ride__input" />
 
         {/* Available Seats */}
-        <label className="block">Available Seats:</label>
-        <input type="number" value={seats} onChange={(e) => setSeats(e.target.value)} className="w-full p-2 border rounded" />
+        <label className="book-ride__label">Available Seats:</label>
+        <input type="number" value={seats} onChange={(e) => setSeats(e.target.value)}   required className="book-ride__input" />
 
         {/* Submit Button */}
-        <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Submit
+        <button type="submit" className="book-ride__btn">
+        Post Ride
         </button>
       </form>
+      <Link to="/MainPage"><button type="button" className="book-ride__btn btn">Back</button></Link>
     </div>
   );
 };

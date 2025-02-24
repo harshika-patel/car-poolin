@@ -4,7 +4,9 @@ import "./HomePage.scss";
 const HomePage=()=>{
     return(
     <div className="start-page">
+        <div className="start-page__hero-img">
         <img src={carpool} alt="Hero image" className="start-page__img"/>
+        </div>
         <h1 className="start-page__title">Car Poolin</h1>
         <p className="start-page__detail">Drive and save Money</p>
         <Link to='/RiderRegister'><button className="start-page__signIn-rider-btn start-page__btn">Sign-in as Rider</button></Link>

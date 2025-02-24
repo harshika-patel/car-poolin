@@ -45,28 +45,31 @@ const RideDetails = () => {
 
   const handleDelete = () => {
     axios
-    .delete(`http://localhost:8080/rides/${id}/cancel`, { data: { seatsToCancel: seatsNeeded } }) 
-    .then((response) => {
-      setRide((prevRide) => ({
-        ...prevRide,
-        booked_seats: prevRide.booked_seats - seatsNeeded,
-        is_booked: prevRide.booked_seats - seatsNeeded === prevRide.seats,
-      }));
-      setBookingStatus(response.data.message);
-    })
-    .catch((error) => {
-      console.error("Cancel error:", error);
-      setBookingStatus(error.response?.data?.message || "Error canceling ride");
-    });
-  
-};
+      .delete(`http://localhost:8080/rides/${id}/cancel`, {
+        data: { seatsToCancel: seatsNeeded },
+      })
+      .then((response) => {
+        setRide((prevRide) => ({
+          ...prevRide,
+          booked_seats: prevRide.booked_seats - seatsNeeded,
+          is_booked: prevRide.booked_seats - seatsNeeded === prevRide.seats,
+        }));
+        setBookingStatus(response.data.message);
+      })
+      .catch((error) => {
+        console.error("Cancel error:", error);
+        setBookingStatus(
+          error.response?.data?.message || "Error canceling ride"
+        );
+      });
+  };
   if (loading) return <p>Loading...</p>;
   if (!ride) return <p>Ride not found</p>;
 
   return (
     <div className="ride-detail-container">
       <Header />
-      <div className="ride-card">
+      <div className="ride-detail-card">
         <div className="ride-header">
           <span className="ride-date">
             {new Date(ride.date).toLocaleDateString()}
@@ -100,17 +103,13 @@ const RideDetails = () => {
         {ride.is_booked ? (
           <div className="ride-full">
             <p>🚫 Ride Full</p>
-
-            {/* <button className="cancel-button btn" onClick={handleDelete}>
-              Cancel Ride
-            </button> */}
           </div>
         ) : (
           <div className="booking-section">
-            <label>
+            <label className="booking-section__label">
               <strong>Total seat Needed</strong>
             </label>
-            <select
+            <select className="booking-section__option"
               value={seatsNeeded}
               onChange={(e) => setSeatsNeeded(parseInt(e.target.value))}
             >
@@ -123,32 +122,28 @@ const RideDetails = () => {
             </select>
 
             <button
-              className={`book-button btn ${ride.is_booked ? "disabled" : ""}`}
+              className={`book-button button ${ride.is_booked ? "disabled" : ""}`}
               onClick={handleBooking}
               disabled={ride.is_booked}
             >
-             {ride.booked_seats > 0
-              ? `Booked ${ride.booked_seats} ${ride.booked_seats === 1 ? "seat" : "seats"}`
-           : "Book Ride"}
+              {ride.booked_seats > 0
+                ? `Booked ${ride.booked_seats} ${
+                    ride.booked_seats === 1 ? "seat" : "seats"
+                  }`
+                : "Book Ride"}
             </button>
           </div>
         )}
 
         {bookingStatus && <p className="booking-status">{bookingStatus}</p>}
 
-        {/* {ride.is_booked && ride.username === currentUser?.username && (
-                    <button onClick={handleDelete} className="cancel-button">
-                        Cancel Ride
-                    </button>
-                )} */}
-
-{ride.booked_seats > 0 && (
-    <button className="cancel-button btn" onClick={handleDelete}>
-        Cancel {seatsNeeded} Seat(s)
-    </button>
-)}
+        {ride.booked_seats > 0 && (
+          <button className="cancel-button button" onClick={handleDelete}>
+            Cancel {seatsNeeded} Seat(s)
+          </button>
+        )}
         <Link to="/MainPage">
-          <button type="button" className="book-ride__btn btn">
+          <button type="button" className="book-ride__btnBack button">
             Back
           </button>
         </Link>

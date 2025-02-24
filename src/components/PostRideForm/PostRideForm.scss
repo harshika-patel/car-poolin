@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables.scss' as *;
 
 
-.book-ride {
+.post-ride {
     max-width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -30,20 +30,25 @@
   }
 
   &__btn {
-    width: 80%;
-    padding: 8px;
-    background-color: $purple;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-   
+    margin:0;
+    margin-top:8px;
+    // margin-left:1rem;
+    width:92%;
+    padding:4px 1rem;
+     margin:8px 0;
+     background-color: $purple;
+    
+     border-radius: 5px;
+     border: none;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
     // &:hover {
     //   background-color: lighten($purple, 10%);
     // }
+    &-Back{
+      background-color: $black;
+      color:white
+    }
   }
 
   // Suggestions list styling (if needed)
@@ -65,18 +70,4 @@
       }
     }
   }
-}
-.btn{
-    width: 80%;
-    margin-left:1rem;
-    margin-top:8px;
-    margin-bottom: 1rem;
-    padding: 8px;
-    background-color: $purple;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-  
 }

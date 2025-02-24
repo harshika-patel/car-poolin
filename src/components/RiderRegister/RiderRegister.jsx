@@ -75,7 +75,7 @@ const RiderRegister = () => {
 
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Username:
+            Username  </label>
             <input
             className='riderRegister__input'
               type="text"
@@ -84,11 +84,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Password:
+            Password  </label>
             <input
              className='riderRegister__input'
               type="password"
@@ -97,11 +97,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Age:
+            Age </label>
             <input
              className='riderRegister__input'
               type="number"
@@ -110,11 +110,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+          
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Phone Number:
+            Phone Number  </label>
             <input
              className='riderRegister__input'
               type="text"
@@ -123,11 +123,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Car Name:
+            Car Name  </label>
             <input
              className='riderRegister__input'
               type="text"
@@ -136,11 +136,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Model:
+            Model  </label>
             <input
              className='riderRegister__input'
               type="text"
@@ -149,11 +149,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            Color:
+            Color </label>
             <input
              className='riderRegister__input'
               type="text"
@@ -162,11 +162,11 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+          
         </div>
         <div className='riderRegister__row'>
           <label className='riderRegister__label'>
-            LicensePlateNumber:
+            License Plate Number  </label>
             <input
              className='riderRegister__input'
               type="text"
@@ -175,11 +175,14 @@ const RiderRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
+        <div className='riderRegister__btns'>
         <button type="submit" className='riderRegister__btn'>Register</button>
+        <Link to="/"><button type="button" className='riderRegister__backBtn'>Back</button></Link>
+        </div>
       </form>
-      <Link to="/"><button type="button" className='riderRegister__backBtn'>Back</button></Link>
+     
     </section>
   );
 };

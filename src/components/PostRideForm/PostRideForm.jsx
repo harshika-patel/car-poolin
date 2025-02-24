@@ -106,10 +106,10 @@ const PostRideForm = () => {
   return (
     <div > 
       <Header/>
-      <h2 className="book-ride__title">Post a Ride</h2>
-      <form onSubmit={handleSubmit} className="book-ride" >
+      <h2 className="post-ride__title">Post a Ride</h2>
+      <form onSubmit={handleSubmit} className="post-ride" >
       
-        <label className="book-ride__label">From:</label>
+        <label className="post-ride__label">From:</label>
         <input
           type="text"
           value={from}
@@ -117,7 +117,7 @@ const PostRideForm = () => {
             setFrom(e.target.value);
             fetchSuggestions(e.target.value, "from");
           }}
-          className="book-ride__input"
+          className="post-ride__input"
           placeholder="Enter starting location"
           required
         />
@@ -136,7 +136,7 @@ const PostRideForm = () => {
         )}
 
         {/* To Location */}
-        <label className="book-ride__label">To:</label>
+        <label className="post-ride__label">To:</label>
         <input
           type="text"
           value={to}
@@ -144,7 +144,7 @@ const PostRideForm = () => {
             setTo(e.target.value);
             fetchSuggestions(e.target.value, "to");
           }}
-           className="book-ride__input"
+           className="post-ride__input"
           placeholder="Enter destination"
           required
         />
@@ -163,27 +163,28 @@ const PostRideForm = () => {
         )}
 
         {/* Date Picker */}
-        <label className="book-ride__label">Date:</label>
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)}  required  className="book-ride__input" />
+        <label className="post-ride__label">Date:</label>
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)}  required  className="post-ride__input" />
 
         {/* Time Picker */}
-        <label className="book-ride__label">Time:</label>
-        <input type="time" value={time} onChange={(e) => setTime(e.target.value)}  required  className="book-ride__input" />
+        <label className="post-ride__label">Time:</label>
+        <input type="time" value={time} onChange={(e) => setTime(e.target.value)}  required  className="post-ride__input" />
 
         {/* Price */}
-        <label className="book-ride__label">Price ($):</label>
-        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}  required  className="book-ride__input" />
+        <label className="post-ride__label">Price ($):</label>
+        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}  required  className="post-ride__input" />
 
         {/* Available Seats */}
-        <label className="book-ride__label">Available Seats:</label>
-        <input type="number" value={seats} onChange={(e) => setSeats(e.target.value)}   required className="book-ride__input" />
+        <label className="post-ride__label">Available Seats:</label>
+        <input type="number" value={seats} onChange={(e) => setSeats(e.target.value)}   required className="post-ride__input" />
 
         {/* Submit Button */}
-        <button type="submit" className="book-ride__btn">
+        <button type="submit" className="post-ride__btn">
         Post Ride
         </button>
+        <Link to="/MainPage"><button type="button" className="post-ride__btn post-ride__btn-Back ">Back</button></Link>
       </form>
-      <Link to="/MainPage"><button type="button" className="book-ride__btn btn">Back</button></Link>
+     
     </div>
   );
 };

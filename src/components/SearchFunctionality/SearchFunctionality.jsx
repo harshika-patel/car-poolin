@@ -2,7 +2,7 @@ import React, { useState , useEffect } from "react";
 import './SearchFunctionality.scss';
 import CardDetails from "../CardDetails/CardDetails";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 const LocationSearch = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -23,15 +23,15 @@ const LocationSearch = () => {
 const fetchAllRides = async () => {
     setLoading(true);
     try {
-        const response = await axios.get("http://localhost:8080/rides");
-        setRides(response.data);
+      const response = await axios.get("http://localhost:8080/rides");
+      setRides(response.data);
     } catch (error) {
-        console.error("Error fetching rides:", error);
-        setError("Failed to load rides.");
+      console.error("Error fetching rides:", error);
+      setError("Failed to load rides.");
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
-};
+  };
 
 
   const fetchSuggestions = async (input, field) => {
@@ -97,11 +97,14 @@ const fetchAllRides = async () => {
       setLoading(false);
     }
   };
-
+  const navigate = useNavigate();
+  const handlePostRide = () => {
+    navigate("/post-ride");
+  };
 
   return (
     <div className="search-box">
-      <label className="search-box__label">From:</label>
+      <label className="search-box__label">From</label>
       <input
       className="search-box__input"
         type="text"
@@ -128,7 +131,7 @@ const fetchAllRides = async () => {
         </ul>
       )}
 
-      <label className="search-box__label" >To:</label>
+      <label className="search-box__label" >To</label>
       <input
        className="search-box__input"
         type="text"
@@ -154,9 +157,14 @@ const fetchAllRides = async () => {
           ))}
         </ul>
       )}
-      <button type="button" className="search-box__btn"  onClick={handleSearchRides}>Search for Ride</button>
-      {/* {error && <p className="error-message">{error}</p>} */}
-      <CardDetails rides={rides} />
+      <button type="button" className="search-box__btn search-box__btn-search__ride"  onClick={handleSearchRides}>Search for Ride</button>
+      {error && <p className="error-message">{error}</p>}
+      <button type="button" className="search-box__btn" onClick={fetchAllRides}>
+      Show All Rides
+    </button>
+    <button type="button" onClick={handlePostRide} className="post-ride-button search-box__btn">Post for Ride</button>
+    {!loading && rides.length === 0 && <p>No rides found for the selected locations.</p>}
+      <CardDetails  rides={rides} loading={loading}/>
     </div>
   );
 };

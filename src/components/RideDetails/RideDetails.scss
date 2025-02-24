@@ -1,15 +1,51 @@
+@use '../../styles/partials/globals.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
+.ride-detail-card{
+    margin-left:1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
+    background: white;
+}
 .booking-section{
     display:flex;
     flex-direction: column;
-    margin-top:1rem;
+    margin-top:0.5rem;
+    &__label{
+        margin-bottom:0.5rem;
+    }
+    &__option{
+        padding:4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
 }
-.book-button{
+.button {
     margin:0;
     margin-top:8px;
-    margin-left:1rem;
-
+    // margin-left:1rem;
+    width:100%;
+    padding:4px 1rem;
+     margin:8px 0;
+     background-color: $purple;
+     border-radius: 5px;
+     border: none;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
-.book-ride__btn{
-    background-color: black;
-    color:white;
+.book-ride__btnBack{
+    margin:0;
+    margin-top:8px;
+    // margin-left:1rem;
+    width:100%;
+    padding:4px 1rem;
+     margin:8px 0;
+     background-color: $black;
+     color: white;
+     border-radius: 5px;
+     border: none;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }

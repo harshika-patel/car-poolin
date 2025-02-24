@@ -51,7 +51,7 @@ const PassengerRegister = () => {
         <h2>Passenger Registration</h2>
         <div className='passengerRegister__row'>
           <label className='passengerRegister__label'>
-            Username:
+            Username</label>
             <input
               className='passengerRegister__input'
               type="text"
@@ -60,11 +60,11 @@ const PassengerRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='passengerRegister__row'>
           <label className='passengerRegister__label'>
-            Password:
+            Password  </label>
             <input
             className='passengerRegister__input'
               type="password"
@@ -73,11 +73,11 @@ const PassengerRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+         
         </div>
         <div className='passengerRegister__row'>
           <label className='passengerRegister__label'>
-            Age:
+            Age </label>
             <input
             className='passengerRegister__input'
               type="number"
@@ -86,11 +86,11 @@ const PassengerRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+          
         </div>
         <div className='passengerRegister__row'>
           <label className='passengerRegister__label'>
-            Phone Number:
+            Phone Number </label>
             <input
             className='passengerRegister__input'
               type="text"
@@ -99,11 +99,14 @@ const PassengerRegister = () => {
               onChange={handleChange}
               required
             />
-          </label>
+          
         </div>
+        <div className='passengerRegister__btns'>
         <button type="submit" className='passengerRegister__btn'> Register</button> 
+        <Link to="/"><button type="button"className='passengerRegister__backBtn'>Back</button></Link>
+        </div>
       </form>
-      <Link to="/"><button type="button"className='passengerRegister__backBtn'>Back</button></Link>
+      
     </section>
   );
 };

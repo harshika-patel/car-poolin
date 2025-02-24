@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from "../Header/Header";
 import { useAuth } from '../../contexts/AuthContext';
+import Footer from '../Footer/Footer';
 const Login = () => {
     const { loginUser } = useAuth(); 
   const [formData, setFormData] = useState({
@@ -49,36 +50,40 @@ const Login = () => {
   return (
     <section>
       <Header />
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
+      <form onSubmit={handleSubmit} className='login'>
+        <h2>User Login</h2>
         {error && <p className="error">{error}</p>}
-        <div>
-          <label>
-            Username:
-            <input
+        <div className='login__row'>
+          <label className='login__label'>
+            Username</label>
+            <input className='login__input'
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
               required
             />
-          </label>
+          
         </div>
-        <div>
-          <label>
-            Password:
-            <input
+        <div  className='login__row'>
+          <label className='login__label'>
+            Password  </label>
+            <input className='login__input'
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
             />
-          </label>
+        
         </div>
-        <button type="submit">Login</button>
+        <div className='login__btns'>
+        <button className='login__btn' type="submit">Login</button>
+
+        <Link to="/" ><button type="button"  className='login__backBtn'>Back</button></Link>
+        </div>
       </form>
-      <Link to="/"><button type="button">Back</button></Link>
+      
     </section>
   );
 };

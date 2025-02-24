@@ -4,13 +4,18 @@ import axios from "axios";
 import profile from "../../assets/image/Profile.png";
 import "./CardDetails.scss";
 import { useNavigate } from "react-router-dom";
-const CardDetails = ({ rides = [] }) => {
+const CardDetails = ({rides=[],loading}) => {
+    const [sortedRides, setSortedRides] = useState([]);
     const navigate = useNavigate();
-    if (!rides || rides.length === 0) return <p>No rides available</p>;
+    useEffect(() => {
+        const sortedArray = [...rides].sort((a, b) => new Date(b.date) - new Date(a.date));
+        setSortedRides(sortedArray);
+      }, [rides]);
+    if (loading) return <p>Loading rides...</p>;
     return (
         <div className="rides-container">
             {rides.map(ride => (
-                <div className="ride-card" key={ride.id}  onClick={() => navigate(`/ride/${ride.id}`)}>
+                <div className="ride-card" key={ride.id}  onClick={() => navigate(`/ride/${ride.id}`)} >
                     {/* Header with Date and Time */}
                     <div className="ride-header">
                         <span className="ride-date">{new Date(ride.date).toLocaleDateString()}</span>

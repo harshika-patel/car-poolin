@@ -1,0 +1,53 @@
+@use '../../styles/partials/globals.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:12px;
+    &__row{
+      margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+      
+    }
+    &__label{
+        margin-right: 10px;
+      
+    }
+    &__input{
+        width:130px;
+        border-radius: 5px;
+        border:1px solid black;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    &__btns{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__btn{
+     width:100%;
+     padding:4px 5.5rem;
+     margin:8px;
+     background-color: $purple;
+     border-radius: 5px;
+     border: none;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    &__backBtn{
+       width: 100%;
+        padding:5px 6.5rem;
+        background-color: black;
+        color:white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+   
+}

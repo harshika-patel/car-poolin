@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "cars---poolin",
+=======
+  "name": "car-poolin",
+>>>>>>> b5c2a7bed85c0e2df2ae95c9017d7dc10a14da24
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +14,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.5",
     "sass": "^1.85.0"
+=======
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+>>>>>>> b5c2a7bed85c0e2df2ae95c9017d7dc10a14da24
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

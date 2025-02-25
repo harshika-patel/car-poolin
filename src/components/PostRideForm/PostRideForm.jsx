@@ -61,7 +61,7 @@ const PostRideForm = () => {
     
    
     if (!currentUser) {
-      alert("You need to be logged in to post a ride.");
+      alert("You need to be logged/register as driver to post a ride.");
       return;
     }
     console.log("Current User:", currentUser);
